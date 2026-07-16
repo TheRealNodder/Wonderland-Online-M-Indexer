@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "generated_at": "2026-07-16T19:12:22.874647+00:00",
+    "game": "Wonderland M",
+    "engine": "Unity IL2CPP",
+    "unity_version": "Unity 6000.0.58f2",
+    "il2cpp_metadata_version": 31,
+    "verification_status": "current_client_extracted",
+    "files_scanned": 28627,
+    "localization_count": 34161,
+    "character_data_included": false,
+    "database_path": "./data/wonderland_m_complete.sqlite3"
+  },
+  "counts": {
+    "items": 5375,
+    "monsters": 0,
+    "drops": 0,
+    "maps": 1105,
+    "step_afk_locations": 0,
+    "visible_spawns": 0,
+    "dungeons": 0,
+    "npcs": 0,
+    "shops": 0,
+    "quests": 0,
+    "quest_chains": 0,
+    "quest_rewards": 0,
+    "map_requirements": 0,
+    "portals_teleports": 0,
+    "compounds": 0,
+    "localization": 34161,
+    "evidence": 5375,
+    "unresolved": 12,
+    "verification_issues": 0
+  }
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151a1d">
+  <title>Wonderland Online M Indexer</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-block">
+      <div class="brand-mark" aria-hidden="true">WM</div>
+      <div>
+        <h1>Wonderland Online M Indexer</h1>
+        <p id="clientLabel">Current Steam client</p>
+      </div>
+    </div>
+    <div class="build-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="buildStatus">Loading index</span>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Index sections">
+      <nav id="sectionNav"></nav>
+    </aside>
+
+    <main class="main-content">
+      <section class="search-band">
+        <label class="search-control" for="globalSearch">
+          <span aria-hidden="true">⌕</span>
+          <input id="globalSearch" type="search" placeholder="Search names, IDs, keys, tables, encounters..." autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div class="filters" aria-label="Record confidence">
+          <label><input id="confirmedOnly" type="checkbox"> Confirmed only</label>
+          <select id="confidenceFilter" aria-label="Confidence filter">
+            <option value="">All confidence</option>
+            <option value="direct_client_record">Direct client record</option>
+            <option value="direct_localization_match">Direct localization</option>
+            <option value="direct_asset_relationship">Direct asset link</option>
+            <option value="strong_relationship">Strong relationship</option>
+            <option value="inferred_relationship">Inferred relationship</option>
+            <option value="name_match_only">Name match only</option>
+            <option value="unresolved">Unresolved</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="summary-band" id="summaryBand" aria-label="Extraction totals"></section>
+
+      <section class="view-heading">
+        <div>
+          <p class="eyebrow" id="viewEyebrow">INDEX</p>
+          <h2 id="viewTitle">Global Search</h2>
+        </div>
+        <div class="record-count" id="recordCount">0 records</div>
+      </section>
+
+      <section class="data-surface">
+        <div id="emptyState" class="empty-state" hidden>
+          <strong>No current-client records in this section.</strong>
+          <span>See Unresolved Records and Extraction Evidence for the local-data boundary.</span>
+        </div>
+        <div class="table-wrap" id="tableWrap">
+          <table>
+            <thead id="tableHead"></thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="pagination" hidden>
+          <button type="button" id="prevPage" aria-label="Previous page" title="Previous page">←</button>
+          <span id="pageLabel">Page 1 of 1</span>
+          <button type="button" id="nextPage" aria-label="Next page" title="Next page">→</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="recordDialog">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow" id="dialogKind">RECORD</p>
+        <h2 id="dialogTitle">Record</h2>
+      </div>
+      <button class="icon-button" id="closeDialog" type="button" aria-label="Close" title="Close">×</button>
+    </div>
+    <div id="dialogBody" class="dialog-body"></div>
+  </dialog>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
