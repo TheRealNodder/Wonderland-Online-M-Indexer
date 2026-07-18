@@ -44,6 +44,11 @@ ChatGPT/Aleta checkpoint 3 returned **Pass** with no commit blockers. Its only
 continuing restriction is to leave monster, spawn, drop, and recipe tables empty
 until current-client payload records are found and parsed.
 
+Local checkpoints (not pushed):
+
+- `b58fcd8` - Verify current Wonderland M source provenance
+- `fa89006` - Load index sections on demand
+
 ## Repository and source locations
 
 - Repository: `C:\Users\josue\OneDrive\Documents\GitHub\Wonderland-Online-M-Indexer`
@@ -203,6 +208,8 @@ Only Grade A/B evidence may populate confirmed domain relationships. See
 ## Last successful commands
 
 ```powershell
+python tools\validate_site.py --site-dir .
+
 python tools\scan_string_references.py --game-dir "D:\SteamLibrary\steamapps\common\WLM"
 
 python tools\index_il2cpp_schema.py `
