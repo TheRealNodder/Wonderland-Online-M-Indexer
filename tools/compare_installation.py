@@ -108,6 +108,21 @@ def iter_physical_files(game_dir: Path) -> Iterable[Path]:
     return sorted((path for path in game_dir.rglob("*") if path.is_file()), key=lambda p: p.as_posix().lower())
 
 
+def physical_metadata_inventory(game_dir: Path) -> list[dict[str, object]]:
+    records: list[dict[str, object]] = []
+    for path in iter_physical_files(game_dir):
+        stat = path.stat()
+        records.append(
+            {
+                "relative_path": path.relative_to(game_dir).as_posix(),
+                "file_size": stat.st_size,
+                "modified_utc": datetime.fromtimestamp(stat.st_mtime, timezone.utc).isoformat(),
+                "is_archive_container": path.suffix.lower() == ".zip" and zipfile.is_zipfile(path),
+            }
+        )
+    return records
+
+
 def archive_logical_path(container_relative: str, member_name: str) -> str:
     parent = Path(container_relative).parent.as_posix()
     member = normalize_path(member_name)
@@ -419,6 +434,7 @@ def main() -> int:
         type=Path,
         default=repository / "source_manifest" / "home_install",
     )
+    parser.add_argument("--force", action="store_true", help="Hash every file even when path, size, and timestamp metadata are unchanged")
     args = parser.parse_args()
 
     game_dir = args.game_dir.resolve()
@@ -430,6 +446,34 @@ def main() -> int:
         raise SystemExit(f"Reference database not found: {database}")
     if output_dir == game_dir or game_dir in output_dir.parents:
         raise SystemExit("Output directory must not be inside the game installation")
+
+    cached_physical_path = output_dir / "home-physical-files.json"
+    cached_result_path = output_dir / "install-comparison.json"
+    if not args.force and cached_physical_path.is_file() and cached_result_path.is_file():
+        previous_physical = json.loads(cached_physical_path.read_text(encoding="utf-8"))
+        current_physical = physical_metadata_inventory(game_dir)
+        if previous_physical == current_physical:
+            previous_result = json.loads(cached_result_path.read_text(encoding="utf-8"))
+            passed = bool(
+                previous_result.get("logical_identical")
+                and previous_result.get("core_identical")
+                and previous_result.get("metadata_header", {}).get("sanity_hex") == "0xFAB11BAF"
+                and previous_result.get("metadata_header", {}).get("metadata_version") == 31
+                and previous_result.get("unity_bundle_identity", {}).get("unity_revision") == "6000.0.58f2"
+            )
+            print(
+                json.dumps(
+                    {
+                        "decision": previous_result.get("decision"),
+                        "counts": previous_result.get("comparison_counts"),
+                        "output_dir": str(output_dir),
+                        "cached": True,
+                        "cache_basis": "physical paths, sizes, archive flags, and modified timestamps are unchanged",
+                    },
+                    indent=2,
+                )
+            )
+            return 0 if passed else 1
 
     reference = load_reference(database)
     logical, physical, archives = build_logical_inventory(game_dir)
@@ -504,6 +548,17 @@ def main() -> int:
             "modern_client_identity_supported": logical_identical and core_identical and metadata_current and unity_current,
         },
     }
+    existing_result_path = output_dir / "install-comparison.json"
+    if existing_result_path.is_file():
+        try:
+            existing_result = json.loads(existing_result_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            existing_result = None
+        if isinstance(existing_result, dict):
+            previous_without_time = {key: value for key, value in existing_result.items() if key != "generated_at"}
+            current_without_time = {key: value for key, value in result.items() if key != "generated_at"}
+            if previous_without_time == current_without_time and existing_result.get("generated_at"):
+                result["generated_at"] = existing_result["generated_at"]
     write_reports(output_dir, result, logical, physical)
     print(json.dumps({"decision": decision, "counts": result["comparison_counts"], "output_dir": str(output_dir)}, indent=2))
     return 0 if logical_identical and core_identical and metadata_current and unity_current else 1

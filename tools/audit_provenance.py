@@ -169,7 +169,19 @@ def main() -> int:
         "tables": table_results,
     }
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True), encoding="utf-8")
+    if output.is_file():
+        try:
+            previous_report = json.loads(output.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous_report = None
+        if isinstance(previous_report, dict):
+            previous_without_time = {key: value for key, value in previous_report.items() if key != "generated_at"}
+            current_without_time = {key: value for key, value in report.items() if key != "generated_at"}
+            if previous_without_time == current_without_time and previous_report.get("generated_at"):
+                report["generated_at"] = previous_report["generated_at"]
+    json_text = json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True)
+    if not output.is_file() or output.read_text(encoding="utf-8") != json_text:
+        output.write_text(json_text, encoding="utf-8")
 
     populated = [(name, value) for name, value in table_results.items() if value["rows"]]
     lines = [
@@ -210,7 +222,10 @@ def main() -> int:
             "",
         ]
     )
-    output.with_suffix(".md").write_text("\n".join(lines), encoding="utf-8")
+    markdown_output = output.with_suffix(".md")
+    markdown_text = "\n".join(lines)
+    if not markdown_output.is_file() or markdown_output.read_text(encoding="utf-8") != markdown_text:
+        markdown_output.write_text(markdown_text, encoding="utf-8")
     print(json.dumps({"status": report["status"], "audited_rows": total_audited_rows, "failures": total_failures, "output": str(output)}, indent=2))
     return 0 if passed else 1
 

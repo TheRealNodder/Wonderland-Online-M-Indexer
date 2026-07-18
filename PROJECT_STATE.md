@@ -44,10 +44,17 @@ ChatGPT/Aleta checkpoint 3 returned **Pass** with no commit blockers. Its only
 continuing restriction is to leave monster, spawn, drop, and recipe tables empty
 until current-client payload records are found and parsed.
 
+Battery-mode recovery check: **PASS**. The forced 28,627-file logical hash
+comparison, site validator, Python/JavaScript checks, SQLite provenance audit,
+and Git whitespace check all completed after resume. Unchanged install checks
+now reuse the saved full-hash result when physical path/size/timestamp metadata
+matches; `compare_installation.py --force` always rehashes every logical file.
+
 Local checkpoints (not pushed):
 
 - `b58fcd8` - Verify current Wonderland M source provenance
 - `fa89006` - Load index sections on demand
+- `7dd04c2` - Record validated project checkpoints
 
 ## Repository and source locations
 
@@ -94,6 +101,9 @@ Local checkpoints (not pushed):
   jrole paths excluded.
 - Fresh WLM IL2CPP dump: targeted static-data types indexed; huge raw dump kept
   outside the repository.
+- Standard Unity persistent-data path
+  `C:\Users\josue\AppData\LocalLow\980x\WLM`: searched by exact filename for
+  the 12 target static payloads; no matches. Unrelated cache files were not read.
 - Previous published extraction: 14,411 non-character bundles parsed with zero
   recorded parse failures; 14,128 role/rolecard bundles excluded.
 
@@ -153,6 +163,9 @@ lawful, non-account-specific current-client copy of the payloads is supplied.
 
 - Searching only the Steam install cannot yield the 12 payloads; the complete
   logical manifest proves they are absent by filename.
+- The standard Unity WLM persistent-data path also contains none of the 12 exact
+  payload filenames. This does not prove the data is never downloaded under a
+  different name or representation.
 - The pre-existing 2026-05-27 Il2CppDumper outputs in Downloads are from
   Evertale (`inc.zigza.evertale...`) and are rejected as wrong-client evidence.
 - `wonderland_m_atlas_starter.zip` contains useful prototype structure but its
