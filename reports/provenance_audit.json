@@ -1,0 +1,619 @@
+{
+  "audited_rows": 46921,
+  "database": "C:\\Users\\josue\\OneDrive\\Documents\\GitHub\\Wonderland-Online-M-Indexer\\data\\wonderland_m_complete.sqlite3",
+  "domain_rows": 46921,
+  "failures": 0,
+  "generated_at": "2026-07-18T02:56:55.139890+00:00",
+  "legacy_guard": {
+    "interpretation": "No populated domain row lacks current-client status or a source path in the hashed Wonderland M manifest. This detects no legacy contamination, but it does not prove that external legacy facts could never have been copied into a field.",
+    "legacy_absence_proven": false,
+    "legacy_contamination_detected": false
+  },
+  "reference_source_files": 28627,
+  "scope": "published current-client relational snapshot",
+  "status": "pass",
+  "tables": {
+    "animation_assets": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_client_record": 2
+      },
+      "distinct_source_files": 2,
+      "extraction_method_counts": {
+        "UnityPy AnimationClip metadata": 2
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 2,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 2
+      }
+    },
+    "audio_assets": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_client_record": 890
+      },
+      "distinct_source_files": 464,
+      "extraction_method_counts": {
+        "UnityPy AudioClip metadata": 890
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 890,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 890
+      }
+    },
+    "client_versions": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_client_record": 1
+      },
+      "distinct_source_files": 1,
+      "extraction_method_counts": {
+        "PE version and IL2CPP metadata header": 1
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 1,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 1
+      }
+    },
+    "compound_recipes": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "crafting_recipes": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "drop_entries": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "drop_tables": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "encounter_groups": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "encounter_members": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "extraction_evidence": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_asset_relationship": 5375
+      },
+      "distinct_source_files": 4648,
+      "extraction_method_counts": {
+        "UnityPy NGUI sprite typetree and Pillow crop": 5370,
+        "UnityPy NGUI sprite typetree; Texture2D absent": 5
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 5375,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 5375
+      }
+    },
+    "item_aliases": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "items": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_asset_relationship": 5375
+      },
+      "distinct_source_files": 4648,
+      "extraction_method_counts": {
+        "UnityPy NGUI sprite typetree and Pillow crop": 5370,
+        "UnityPy NGUI sprite typetree; Texture2D absent": 5
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 5375,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 5375
+      }
+    },
+    "localization_entries": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_localization_match": 34161
+      },
+      "distinct_source_files": 1,
+      "extraction_method_counts": {
+        "UnityPy TextAsset parse": 34161
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 34161,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 34161
+      }
+    },
+    "map_connections": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "map_requirements": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "maps": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_asset_relationship": 1105
+      },
+      "distinct_source_files": 1105,
+      "extraction_method_counts": {
+        "Unity AssetBundle filename and Texture2D extraction": 1105
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 1105,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 1105
+      }
+    },
+    "monster_aliases": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "monster_locations": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "monster_skills": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "monster_stats": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "monsters": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "npc_dialogue": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "npc_functions": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "npc_locations": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "npcs": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "portals": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quest_battles": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quest_chains": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quest_locations": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quest_requirements": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quest_rewards": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quest_steps": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "quests": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "regions": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "shop_inventory": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "shops": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "source_files": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 28627
+    },
+    "teleports": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    },
+    "unresolved_relationships": {
+      "audited": true,
+      "confidence_counts": {
+        "direct_client_record": 12
+      },
+      "distinct_source_files": 1,
+      "extraction_method_counts": {
+        "static binary string extraction": 12
+      },
+      "missing_required_values": 0,
+      "non_current_verification_status": 0,
+      "pass": true,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 12,
+      "unmapped_source_examples": [],
+      "unmapped_source_rows": 0,
+      "verification_status_counts": {
+        "current_client_extracted": 12
+      }
+    },
+    "verification_issues": {
+      "audited": false,
+      "provenance_columns_present": [
+        "client_version",
+        "confidence",
+        "extraction_method",
+        "parser_version",
+        "source_file",
+        "verification_status"
+      ],
+      "rows": 0
+    }
+  }
+}

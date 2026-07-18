@@ -1,0 +1,137 @@
+{
+  "application_identity": {
+    "company": "980x",
+    "product": "WLM",
+    "source_file": "WLM_Data/app.info"
+  },
+  "archive_containers": [
+    {
+      "file_size": 52069586,
+      "members": 113,
+      "relative_path": "WLM_Data/StreamingAssets/StreamingAssets_1.zip",
+      "sha256": "861e2b76cadf76bdcb233092e85538b59c0931a41a78c1cd200c3f9a29b99757"
+    }
+  ],
+  "comparison": {
+    "added": [],
+    "changed": [],
+    "missing": []
+  },
+  "comparison_counts": {
+    "added": 0,
+    "changed": 0,
+    "logical_files": 28627,
+    "matched": 28627,
+    "missing": 0,
+    "physical_files": 28515,
+    "reference_files": 28627
+  },
+  "core_fingerprints": {
+    "GameAssembly.dll": {
+      "current_sha256": "429da8cb9a4ba29a07fd7104d5055c1842bb007830e46085cdc6ed0b3239a9c6",
+      "current_size": 46948864,
+      "matches_reference": true,
+      "reference_sha256": "429da8cb9a4ba29a07fd7104d5055c1842bb007830e46085cdc6ed0b3239a9c6",
+      "reference_size": 46948864
+    },
+    "UnityPlayer.dll": {
+      "current_sha256": "78ec69dab5574f216863eec417c8dc3d7ac1916e6922b2b6658efe78fe185456",
+      "current_size": 33646504,
+      "matches_reference": true,
+      "reference_sha256": "78ec69dab5574f216863eec417c8dc3d7ac1916e6922b2b6658efe78fe185456",
+      "reference_size": 33646504
+    },
+    "WLM.exe": {
+      "current_sha256": "110f382c8d33e0233015d11baeb8a44e06e12afa8759766bad3dad80795505dc",
+      "current_size": 672256,
+      "matches_reference": true,
+      "reference_sha256": "110f382c8d33e0233015d11baeb8a44e06e12afa8759766bad3dad80795505dc",
+      "reference_size": 672256
+    },
+    "WLM_Data/RuntimeInitializeOnLoads.json": {
+      "current_sha256": "5f989e9cddc4d7f57e48e061f15f6122b2286ef31fcdd6f106c87c0cc953aab4",
+      "current_size": 3483,
+      "matches_reference": true,
+      "reference_sha256": "5f989e9cddc4d7f57e48e061f15f6122b2286ef31fcdd6f106c87c0cc953aab4",
+      "reference_size": 3483
+    },
+    "WLM_Data/ScriptingAssemblies.json": {
+      "current_sha256": "ba7bfa95c11562dfa8e952bb9b1d650f27fcc228c11c034b5157313430894122",
+      "current_size": 4516,
+      "matches_reference": true,
+      "reference_sha256": "ba7bfa95c11562dfa8e952bb9b1d650f27fcc228c11c034b5157313430894122",
+      "reference_size": 4516
+    },
+    "WLM_Data/StreamingAssets/UnityServicesProjectConfiguration.json": {
+      "current_sha256": "fcd38ffa37b2a448be41ee9a396a435f8be8e952b4b11b9b60e2962e76c7d352",
+      "current_size": 1410,
+      "matches_reference": true,
+      "reference_sha256": "fcd38ffa37b2a448be41ee9a396a435f8be8e952b4b11b9b60e2962e76c7d352",
+      "reference_size": 1410
+    },
+    "WLM_Data/app.info": {
+      "current_sha256": "e3ac160facf2ffd9faf894e9a3e495625fe494518d05e4ed5416c702904c029f",
+      "current_size": 8,
+      "matches_reference": true,
+      "reference_sha256": "e3ac160facf2ffd9faf894e9a3e495625fe494518d05e4ed5416c702904c029f",
+      "reference_size": 8
+    },
+    "WLM_Data/boot.config": {
+      "current_sha256": "a7a85aa4d9e591f1a9537a7676cecfe0fff643130c0b338423c98f823b5dfa53",
+      "current_size": 156,
+      "matches_reference": true,
+      "reference_sha256": "a7a85aa4d9e591f1a9537a7676cecfe0fff643130c0b338423c98f823b5dfa53",
+      "reference_size": 156
+    },
+    "WLM_Data/globalgamemanagers": {
+      "current_sha256": "2831af7ef36cfa251f792187f3fca730d44005a9085d4984d874283eb1a6e76f",
+      "current_size": 719636,
+      "matches_reference": true,
+      "reference_sha256": "2831af7ef36cfa251f792187f3fca730d44005a9085d4984d874283eb1a6e76f",
+      "reference_size": 719636
+    },
+    "WLM_Data/il2cpp_data/Metadata/global-metadata.dat": {
+      "current_sha256": "bb4011d548961d50345e36574b7213411fc4b8fb28d6a85e6093edfcd14f3aa6",
+      "current_size": 10514580,
+      "matches_reference": true,
+      "reference_sha256": "bb4011d548961d50345e36574b7213411fc4b8fb28d6a85e6093edfcd14f3aa6",
+      "reference_size": 10514580
+    }
+  },
+  "core_identical": true,
+  "decision": "PASS: the home installation is logically byte-identical to the published Wonderland M source snapshot after normalizing ZIP packaging",
+  "game_dir": "D:\\SteamLibrary\\steamapps\\common\\WLM",
+  "generated_at": "2026-07-18T02:55:51.244987+00:00",
+  "legacy_guard": {
+    "modern_client_identity_supported": true,
+    "original_pc_game_evidence_imported": false,
+    "reference_scope": "current Wonderland M Steam/mobile client"
+  },
+  "logical_identical": true,
+  "metadata_header": {
+    "metadata_version": 31,
+    "path": "WLM_Data/il2cpp_data/Metadata/global-metadata.dat",
+    "sanity_hex": "0xFAB11BAF"
+  },
+  "payload_presence": {
+    "NCompound2.dat": [],
+    "NFormula.dat": [],
+    "NItem.dat": [],
+    "NItem_EN.dat": [],
+    "NNpc.dat": [],
+    "NNpc_EN.dat": [],
+    "NSceneData.dat": [],
+    "NSceneData_EN.dat": [],
+    "NSkill.dat": [],
+    "NSkill_EN.dat": [],
+    "NTalk.dat": [],
+    "NTalk_EN.dat": []
+  },
+  "reference_database": "C:\\Users\\josue\\OneDrive\\Documents\\GitHub\\Wonderland-Online-M-Indexer\\data\\wonderland_m_complete.sqlite3",
+  "unity_bundle_identity": {
+    "bundle_format": 8,
+    "source_file": "WLM_Data/StreamingAssets/cg/atlas_cg_jrole_5_79.unity3d",
+    "unity_revision": "6000.0.58f2",
+    "unity_version_field": "5.x.x"
+  }
+}
