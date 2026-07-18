@@ -12,6 +12,10 @@ Pass 3, assemblies and code: **current-client schema indexing complete for the
 static item, NPC, scene, skill, talk, formula, compound, ground, and transfer
 data loaders**.
 
+Official package inspection: **complete for the approved Android APK and
+standalone Windows bootstrap artifacts**. This pass added source metadata only;
+the gameplay-domain record gate remains closed.
+
 Pass 1 inventory and the previous non-character asset extraction remain valid:
 the current home installation is logically byte-identical to the repository's
 28,627-file source manifest after normalizing ZIP packaging.
@@ -31,6 +35,16 @@ the current home installation is logically byte-identical to the repository's
   all 12 target filename literals recovered.
 - Browser index validation: **PASS**, 19 versioned section files, 46,028 search
   routes, no missing assets, and matching build/count/content hashes.
+- Official APK identity/signature: **PASS**, package `com.x980.wlmobile`, version
+  `1.1060.1`, APK v2 signature and content digest verified.
+- Standalone-to-Steam comparison: 15 exact matches, 18 changed files, 28,594
+  missing files; classified as a current bootstrap/base client, not a source
+  replacement.
+- Cross-platform WLM schema comparison: standalone exact match; APK semantic
+  match with one platform-specific offset difference; 33 target types and all
+  12 expected filenames present in every build.
+- Candidate payload presence: **0/12** in the APK and **0/12** in the standalone
+  bootstrap.
 
 ChatGPT/Aleta checkpoint 1 accepted the modern-client provenance with a gate to
 perform the full 28,627-path comparison. That gate is now satisfied.
@@ -43,6 +57,13 @@ Those requirements are reflected in the current files and reports.
 ChatGPT/Aleta checkpoint 3 returned **Pass** with no commit blockers. Its only
 continuing restriction is to leave monster, spawn, drop, and recipe tables empty
 until current-client payload records are found and parsed.
+
+ChatGPT/Aleta checkpoint 4 returned **Pass for package provenance and
+runtime-capture planning**. It confirmed that the artifacts belong to the
+current Wonderland M product line, rejected gameplay-domain imports, and
+recommended a normal Steam-client filesystem-first cache capture as the next
+evidence step. The public CDN string remains an `endpoint_candidate`; stop
+guessing paths after the observed HTTP 404 results.
 
 Battery-mode recovery check: **PASS**. The forced 28,627-file logical hash
 comparison, site validator, Python/JavaScript checks, SQLite provenance audit,
@@ -101,6 +122,11 @@ Local checkpoints (not pushed):
   jrole paths excluded.
 - Fresh WLM IL2CPP dump: targeted static-data types indexed; huge raw dump kept
   outside the repository.
+- Official Android APK and standalone Windows bootstrap: downloaded only after
+  approval, hashed, kept outside the repository, and statically inspected
+  without executing either candidate.
+- APK Unity bundle: AssetRipper recovered the current `DownloadUrlPath` text
+  asset and platform/package-name rules; no named gameplay payload was present.
 - Standard Unity persistent-data path
   `C:\Users\josue\AppData\LocalLow\980x\WLM`: searched by exact filename for
   the 12 target static payloads; no matches. Unrelated cache files were not read.
@@ -166,6 +192,13 @@ lawful, non-account-specific current-client copy of the payloads is supplied.
 - The standard Unity WLM persistent-data path also contains none of the 12 exact
   payload filenames. This does not prove the data is never downloaded under a
   different name or representation.
+- Direct public-CDN guesses for named manifests, streaming ZIPs, and tables
+  returned HTTP 404. The embedded base may require a current manifest, hashed
+  names, another path, or runtime parameters. Additional URL guessing was
+  rejected.
+- The APK and standalone bootstrap reproduce the current loader schema but do
+  not contain any of the 12 payload bytes. Package extraction alone cannot
+  populate gameplay-domain tables.
 - The pre-existing 2026-05-27 Il2CppDumper outputs in Downloads are from
   Evertale (`inc.zigza.evertale...`) and are rejected as wrong-client evidence.
 - `wonderland_m_atlas_starter.zip` contains useful prototype structure but its
@@ -202,21 +235,29 @@ Only Grade A/B evidence may populate confirmed domain relationships. See
 3. Scene IDs/names and item details can be parsed deterministically from the
    current schema if the exact payload bytes become available.
 4. The 113-file physical difference is packaging-only and has no content drift.
+5. The current client likely writes or expands additional non-account-specific
+   data during normal startup/patching. This remains a hypothesis until a
+   before/after filesystem manifest records the exact changed files.
 
 ## Next recommended actions
 
-1. Do not import legacy or starter seed rows. Obtain only a lawful,
-   non-account-specific current-client cache/export of the named payloads if the
-   user can explicitly provide one.
-2. When payload bytes exist, fingerprint them first, preserve them read-only
+1. Do not import legacy or starter seed rows. Plan a normal verified Steam
+   launch with before/after filesystem manifests of likely client data
+   locations. Prefer files written before login and do not use Reload Data on
+   the first observation.
+2. After the client closes, copy only new or changed non-account-specific files
+   to an isolated evidence folder and record original path, timestamps, size,
+   SHA-256, and comparison against the 12 expected payload filenames and named
+   manifest/streaming package literals.
+3. When payload bytes exist, fingerprint them first, preserve them read-only
    outside the repo, and build deterministic parsers from the indexed schema.
-3. Prioritize `NNpc` + encounter/event structures + `NSceneData`, then link
+4. Prioritize `NNpc` + encounter/event structures + `NSceneData`, then link
    drops/items. Do not infer spawn relationships from NPC stats or names.
-4. Implement the flexible `source_type + source_id -> drop_table` relationship
+5. Implement the flexible `source_type + source_id -> drop_table` relationship
    when current drop records exist; do not assume all drops attach to monsters.
-5. Add manual current-game observations only as Grade B evidence with build,
+6. Add manual current-game observations only as Grade B evidence with build,
    screenshot/notes, coordinates, and reproducible steps.
-6. Run validation after every generated-data or frontend change.
+7. Run validation after every generated-data or frontend change.
 
 ## Last successful commands
 
@@ -233,6 +274,23 @@ python tools\index_il2cpp_schema.py `
   --dumper "C:\Users\josue\Downloads\Il2CppDumper-win-v6.7.46\Il2CppDumper.exe"
 ```
 
+Official candidate inspection also reused:
+
+```powershell
+python tools\compare_installation.py `
+  --game-dir <normalized-standalone-directory> `
+  --database data\wonderland_m_complete.sqlite3 `
+  --output-dir <isolated-comparison-directory> `
+  --force
+
+python tools\index_il2cpp_schema.py `
+  --dump-cs <candidate-dump.cs> `
+  --string-literals <candidate-stringliteral.json> `
+  --game-assembly <candidate-code-binary> `
+  --global-metadata <candidate-global-metadata.dat> `
+  --dumper "C:\Users\josue\Downloads\Il2CppDumper-win-v6.7.46\Il2CppDumper.exe"
+```
+
 ## Last generated reports
 
 - `source_manifest/home_install/install-comparison.md`
@@ -244,6 +302,8 @@ python tools\index_il2cpp_schema.py `
 - `reports/runtime_index_profile.md`
 - `reports/runtime_index_sharding.md`
 - `reports/monster_drop_navigation_plan.md`
+- `reports/official_client_candidate_inspection.md`
+- `source_manifest/official_packages.json`
 - `database/schema.sql`
 
 ## Resume checklist

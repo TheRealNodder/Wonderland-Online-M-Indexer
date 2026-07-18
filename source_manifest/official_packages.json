@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-17T21:46:14-07:00",
+  "product_scope": "current Wonderland M only",
+  "artifacts": [
+    {
+      "artifact_id": "official_android_apk_1.1060.1",
+      "artifact_type": "android_apk",
+      "source_url": "https://cgdl.chinesegamer.net/apk/WL.apk",
+      "final_url": "https://cgdl.chinesegamer.net/apk/WL.apk",
+      "http_last_modified": "Tue, 23 Jun 2026 07:10:37 GMT",
+      "size_bytes": 98257251,
+      "sha256": "8f5df0fb1764a02dc174b67f992d977569e514091cc740a182ffa2f50ab5c3e2",
+      "package_id": "com.x980.wlmobile",
+      "version_code": 1,
+      "version_name": "1.1060.1",
+      "compile_sdk": 35,
+      "min_sdk": 30,
+      "target_sdk": 35,
+      "unity_version": "6000.0.58f2",
+      "il2cpp_metadata_version": "31.1",
+      "signature": {
+        "scheme": "APK Signature Scheme v2",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "signature_valid": true,
+        "content_digest_valid": true,
+        "certificate_subject": "CN=Unknown,OU=smartonline,O=smartonline,L=HK,ST=HK,C=HK",
+        "certificate_sha256": "a1402d411ca1fd484cedbaa2affcd62e2a8b7ce52fe57be1d9593a6a702e9882"
+      },
+      "executed": false,
+      "source_status": "current_package_artifact"
+    },
+    {
+      "artifact_id": "official_windows_sfx_1.1060.1",
+      "artifact_type": "windows_self_extracting_archive",
+      "source_url": "https://cgdl.chinesegamer.net/apk/WL.exe",
+      "final_url": "https://cgdl.chinesegamer.net/apk/WL.exe",
+      "http_last_modified": "Thu, 25 Jun 2026 09:13:25 GMT",
+      "size_bytes": 84038263,
+      "sha256": "aa5fe53f27d79029b0d6a859c2c4c1c21f9bd0e6c39d59f307024c4abdf81f52",
+      "authenticode_status": "NotSigned",
+      "archive_entry_count": 41,
+      "extracted_file_count": 33,
+      "extracted_size_bytes": 368739410,
+      "version_name": "1.1060.1",
+      "unity_version": "6000.0.58f2",
+      "il2cpp_metadata_version": 31,
+      "game_assembly_sha256": "a897561453f6ccf1a90cec148f61d8f0411e217e673a81e1836877e9ad8f3c32",
+      "global_metadata_sha256": "b2623dc71f01a8c57a2c38f1aca32fc962408d34d5ddfec3f3f5edbbf2abf92f",
+      "executed": false,
+      "source_status": "current_bootstrap_artifact"
+    }
+  ],
+  "comparisons": {
+    "standalone_to_verified_steam": {
+      "reference_logical_files": 28627,
+      "candidate_files": 33,
+      "matched": 15,
+      "changed": 18,
+      "missing": 28594,
+      "added": 0,
+      "interpretation": "Current bootstrap/base client; never use as a replacement for the verified Steam source snapshot."
+    },
+    "apk_to_verified_steam": {
+      "candidate_files": 145,
+      "exact_hash_matches": 9,
+      "interpretation": "Current Android build with expected platform-specific code and packaging differences."
+    },
+    "targeted_il2cpp_schema": {
+      "target_type_count": 33,
+      "expected_filename_count": 12,
+      "standalone_result": "exact_match",
+      "apk_result": "semantic_match_one_platform_offset_difference"
+    }
+  },
+  "expected_payload_filenames": [
+    "NItem.Dat",
+    "NItem_EN.Dat",
+    "NNpc.dat",
+    "NNpc_EN.dat",
+    "NSceneData.dat",
+    "NSceneData_EN.dat",
+    "NSkill.dat",
+    "NSkill_EN.dat",
+    "NTalk.dat",
+    "NTalk_EN.dat",
+    "NCompound2.dat",
+    "NFormula.dat"
+  ],
+  "payload_presence": {
+    "android_apk": 0,
+    "windows_bootstrap": 0
+  },
+  "download_architecture_evidence": {
+    "endpoint": "https://wlmhkftp.chinesegamer.net/WLF_U3ds/",
+    "endpoint_status": "endpoint_candidate",
+    "platform_subdirectories": [
+      "PC_U6/",
+      "Android_U6/",
+      "iPhone_U6/"
+    ],
+    "manifest_or_package_literals": [
+      "AllFileList.txt",
+      "packagesversion.txt",
+      "MaxStreamingAssets.txt",
+      "StreamingAssetsVision.txt",
+      "StreamingAssetsZip/",
+      "StreamingAssets_"
+    ],
+    "probe_result": "Plausible direct manifest and package URLs returned HTTP 404 on 2026-07-17; do not guess additional paths."
+  },
+  "domain_record_gate": "closed_until_current_payload_records_are_recovered_and_validated"
+}
