@@ -1,0 +1,240 @@
+{
+  "frontend_observations": {
+    "eager_monolithic_fetch": true,
+    "global_search_stringifies_each_record_per_filter_pass": true,
+    "page_size": 250
+  },
+  "generated_at": "2026-07-18T02:38:02.044780+00:00",
+  "python_json_parse_ms": {
+    "average": 122.65,
+    "samples": [
+      110.4,
+      121.77,
+      135.77
+    ]
+  },
+  "recommendations": [
+    "Load a small manifest first and fetch section JSON only when selected.",
+    "Keep global search in a compact precomputed search shard instead of stringifying full records on each keystroke.",
+    "Defer evidence and localization detail payloads until their sections or a record dialog need them.",
+    "Keep the SQLite snapshot as the complete downloadable source while making the browser payload task-oriented."
+  ],
+  "runtime": "C:\\Users\\josue\\OneDrive\\Documents\\GitHub\\Wonderland-Online-M-Indexer\\data\\runtime-index.json",
+  "runtime_bytes": 22207323,
+  "runtime_gzip_bytes": 913631,
+  "sections": [
+    {
+      "bytes": 14406905,
+      "field_count": 10,
+      "fields_always_empty": [],
+      "gzip_bytes": 648841,
+      "percent_of_runtime": 64.87,
+      "records": 34161,
+      "section": "localization"
+    },
+    {
+      "bytes": 3683257,
+      "field_count": 25,
+      "fields_always_empty": [
+        "aliases",
+        "buy_price",
+        "compound_use",
+        "crafting_use",
+        "description",
+        "display_name",
+        "element",
+        "equipment_slot",
+        "level_requirement",
+        "material_rank",
+        "material_type",
+        "quest_item_status",
+        "sell_price",
+        "stack_size",
+        "stats",
+        "subcategory",
+        "trade_restrictions"
+      ],
+      "gzip_bytes": 86554,
+      "percent_of_runtime": 16.59,
+      "records": 5375,
+      "section": "items"
+    },
+    {
+      "bytes": 3321255,
+      "field_count": 13,
+      "fields_always_empty": [],
+      "gzip_bytes": 139804,
+      "percent_of_runtime": 14.96,
+      "records": 5375,
+      "section": "evidence"
+    },
+    {
+      "bytes": 788559,
+      "field_count": 27,
+      "fields_always_empty": [
+        "access_requirements",
+        "coordinate_system",
+        "display_name",
+        "dungeon",
+        "encounter_groups",
+        "entrances",
+        "exits",
+        "floor",
+        "gathering_nodes",
+        "height",
+        "npcs",
+        "parent_map",
+        "portals",
+        "quest_markers",
+        "region",
+        "scene_asset",
+        "subregion",
+        "tilemap",
+        "treasure_points",
+        "width"
+      ],
+      "gzip_bytes": 35269,
+      "percent_of_runtime": 3.55,
+      "records": 1105,
+      "section": "maps"
+    },
+    {
+      "bytes": 6694,
+      "field_count": 8,
+      "fields_always_empty": [
+        "target_id"
+      ],
+      "gzip_bytes": 493,
+      "percent_of_runtime": 0.03,
+      "records": 12,
+      "section": "unresolved"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "compounds"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "drops"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "dungeons"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "map_requirements"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "monsters"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "npcs"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "portals_teleports"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "quest_chains"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "quest_rewards"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "quests"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "shops"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "step_afk_locations"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "verification_issues"
+    },
+    {
+      "bytes": 2,
+      "field_count": 0,
+      "fields_always_empty": [],
+      "gzip_bytes": 22,
+      "percent_of_runtime": 0.0,
+      "records": 0,
+      "section": "visible_spawns"
+    }
+  ],
+  "total_records": 46028
+}

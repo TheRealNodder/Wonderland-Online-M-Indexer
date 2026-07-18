@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from shard_runtime_index import write_runtime_shards
+
 
 def load_json(path: Path) -> list[dict[str, Any]]:
     if not path.is_file():
@@ -104,8 +106,10 @@ def main() -> int:
         "unresolved": unresolved,
         "verification_issues": issues,
     }
-    (data_dir / "runtime-index.json").write_text(json.dumps(runtime, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    (data_dir / "manifest.json").write_text(json.dumps({"meta": runtime["meta"], "counts": {key: len(value) for key, value in runtime.items() if isinstance(value, list)}}, ensure_ascii=False, indent=2), encoding="utf-8")
+    manifest = write_runtime_shards(runtime, data_dir)
+    old_runtime = data_dir / "runtime-index.json"
+    if old_runtime.is_file():
+        old_runtime.unlink()
 
     report_dir = site / "reports"
     report_dir.mkdir(parents=True, exist_ok=True)
@@ -113,7 +117,19 @@ def main() -> int:
         source = extraction / "reports" / name
         if source.is_file():
             shutil.copy2(source, report_dir / name)
-    print(json.dumps({"status": "ok", "runtime": str(data_dir / "runtime-index.json"), "items": len(items), "maps": len(maps), "evidence": len(evidence)}, indent=2))
+    print(
+        json.dumps(
+            {
+                "status": "ok",
+                "manifest": str(data_dir / "manifest.json"),
+                "sections": len(manifest["sections"]),
+                "items": len(items),
+                "maps": len(maps),
+                "evidence": len(evidence),
+            },
+            indent=2,
+        )
+    )
     return 0
 
 
