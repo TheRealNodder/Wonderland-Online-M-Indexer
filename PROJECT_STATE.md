@@ -1,6 +1,6 @@
 # Wonderland Online M Indexer - Project State
 
-Last updated: 2026-07-17 (America/Los_Angeles)
+Last updated: 2026-08-25 (America/Los_Angeles)
 
 Read this file before starting another extraction session. The target is the
 current Steam/mobile Wonderland M client, not the original early-2000s
@@ -15,6 +15,13 @@ data loaders**.
 Official package inspection: **complete for the approved Android APK and
 standalone Windows bootstrap artifacts**. This pass added source metadata only;
 the gameplay-domain record gate remains closed.
+
+User-supplied XAPK/runtime inspection: **complete for the APKPure 1.1060.1 XAPK,
+its publisher-signed base/ARM64 split APKs, and the adjacent Android app-data
+export**. All 28,838 runtime-export files were hashed once and cached. The XAPK
+IL2CPP schema is indexed, 51 Android-only bundle paths are identified, and 12
+new item icons are preserved as asset-only evidence. The gameplay-domain record
+gate remains closed.
 
 Pass 1 inventory and the previous non-character asset extraction remain valid:
 the current home installation is logically byte-identical to the repository's
@@ -45,6 +52,18 @@ the current home installation is logically byte-identical to the repository's
   12 expected filenames present in every build.
 - Candidate payload presence: **0/12** in the APK and **0/12** in the standalone
   bootstrap.
+- Supplied XAPK identity/signatures: **PASS**, package `com.x980.wlmobile`,
+  version `1.1060.1`, version code `122`; both embedded APK v2 signatures and
+  content digests verified with the known publisher certificate.
+- Supplied Android runtime export: **28,838 files**, **1,453,213,358 bytes**,
+  including **28,590 primary bundles** and **97 Unity cache data/info pairs**.
+- Android-to-Steam normalized bundle paths: all **28,539** Steam bundle paths
+  present, **51 added**, **0 missing**. Shared hashes are platform/content
+  differences, not assumed semantic changes.
+- XAPK IL2CPP schema: **PASS**, metadata v31, 33/33 targeted types and 12/12
+  filename literals. Exact targeted semantic match to the prior Android APK.
+- Android-only item asset evidence: **12 direct asset relationships** with
+  validated 32x32 RGBA icons; gameplay names/details remain unresolved.
 
 ChatGPT/Aleta checkpoint 1 accepted the modern-client provenance with a gate to
 perform the full 28,627-path comparison. That gate is now satisfied.
@@ -71,17 +90,22 @@ and Git whitespace check all completed after resume. Unchanged install checks
 now reuse the saved full-hash result when physical path/size/timestamp metadata
 matches; `compare_installation.py --force` always rehashes every logical file.
 
-Local checkpoints (not pushed):
+Published checkpoints:
 
 - `b58fcd8` - Verify current Wonderland M source provenance
 - `fa89006` - Load index sections on demand
 - `7dd04c2` - Record validated project checkpoints
+- `7b9f9de` - Record official client candidate inspection
 
 ## Repository and source locations
 
 - Repository: `C:\Users\josue\OneDrive\Documents\GitHub\Wonderland-Online-M-Indexer`
 - Read-only game source: `D:\SteamLibrary\steamapps\common\WLM`
 - Plan: `C:\Users\josue\Downloads\Wonderland_Online_M_Indexer_Plan.md`
+- Supplied primary XAPK:
+  `C:\Users\josue\Downloads\Wonderland M\Wonderland+M_1.1060.1_APKPure.xapk`
+- Supplied Android app-data export:
+  `C:\Users\josue\Downloads\Wonderland M\APK FILES\com.x980.wlmobile`
 - Published database snapshot: `data/wonderland_m_complete.sqlite3`
 - The old full extraction workspace
   `C:\Users\Public\Documents\WonderlandM_Atlas_Extraction` is not present on
@@ -100,6 +124,17 @@ Local checkpoints (not pushed):
   `429da8cb9a4ba29a07fd7104d5055c1842bb007830e46085cdc6ed0b3239a9c6`
 - `global-metadata.dat` SHA-256:
   `bb4011d548961d50345e36574b7213411fc4b8fb28d6a85e6093edfcd14f3aa6`
+
+Supplied XAPK-specific identity:
+
+- XAPK SHA-256:
+  `eff3324b28fe324dc3457895d4bb746647dbbfa7c01281c23a20fc4d7ab18f26`
+- ARM64 `libil2cpp.so` SHA-256:
+  `2286adf1320cd7710eb3f3e9d7d6b1822d6d5740b4a33879a630b79c6d64abc2`
+- XAPK `global-metadata.dat` SHA-256:
+  `1b0183c154c8a172fdd1cdc3ff41ea8c8136a48d79aeedbbf3b672e9d89aec63`
+- Publisher certificate SHA-256:
+  `a1402d411ca1fd484cedbaa2affcd62e2a8b7ce52fe57be1d9593a6a702e9882`
 
 ## Important formats
 
@@ -125,6 +160,14 @@ Local checkpoints (not pushed):
 - Official Android APK and standalone Windows bootstrap: downloaded only after
   approval, hashed, kept outside the repository, and statically inspected
   without executing either candidate.
+- Supplied 1.1060.1 XAPK: fully unpacked in an isolated `work/` directory;
+  every XAPK/APK member and every supplied runtime-export file inventoried and
+  hashed without changing the originals.
+- Supplied Android runtime tree: 28,590 primary UnityFS bundles inventoried;
+  97 additional Unity cache data/info pairs preserved and classified.
+- Android-only item bundles: 12 copied to an isolated AssetRipper input,
+  successfully resolved to prefab containers and visually checked Texture2D
+  icons. Role and role-card bundles remained unparsed.
 - APK Unity bundle: AssetRipper recovered the current `DownloadUrlPath` text
   asset and platform/package-name rules; no named gameplay payload was present.
 - Standard Unity persistent-data path
@@ -145,6 +188,12 @@ Local checkpoints (not pushed):
 | `audio_assets` | 890 | metadata only |
 | `animation_assets` | 2 | metadata only |
 | `unresolved_relationships` | 12 | exact missing payload references |
+
+The published database counts above are unchanged. Separate current-Android
+evidence now records 12 additional item asset IDs (`3941`, `4890`-`4894`,
+`4898`, `4899`, `6275`-`6277`, `6280`) and icons under
+`source_manifest/android_export/`; they have not been promoted into gameplay
+records or the website.
 
 Monster, drop, encounter, NPC, shop, quest, recipe, portal, teleport, and
 spawn/location tables contain zero rows. Zero means unresolved, not absent from
@@ -199,6 +248,15 @@ lawful, non-account-specific current-client copy of the payloads is supplied.
 - The APK and standalone bootstrap reproduce the current loader schema but do
   not contain any of the 12 payload bytes. Package extraction alone cannot
   populate gameplay-domain tables.
+- The supplied APKPure XAPK and adjacent 1.45 GB Android app-data export also
+  contain none of the 12 payloads as ordinary files or APK members.
+- Il2CppDumper could not read XAPK binaries from the protected Documents/Codex
+  path. Byte-identical copies under an isolated local temporary directory
+  dumped successfully. Its nonzero result occurred only after dump completion
+  at the configured redirected-input prompt.
+- AssetRipper warned on unrelated built-in Unity/default resources, but every
+  targeted Android-only item bundle, prefab relationship, and PNG exported and
+  validated successfully.
 - The pre-existing 2026-05-27 Il2CppDumper outputs in Downloads are from
   Evertale (`inc.zigza.evertale...`) and are rejected as wrong-client evidence.
 - `wonderland_m_atlas_starter.zip` contains useful prototype structure but its
@@ -235,29 +293,34 @@ Only Grade A/B evidence may populate confirmed domain relationships. See
 3. Scene IDs/names and item details can be parsed deterministically from the
    current schema if the exact payload bytes become available.
 4. The 113-file physical difference is packaging-only and has no content drift.
-5. The current client likely writes or expands additional non-account-specific
-   data during normal startup/patching. This remains a hypothesis until a
-   before/after filesystem manifest records the exact changed files.
+5. The Android client directly stores the supplied primary bundle categories
+   under its `files` directory and keeps streaming count/version markers plus
+   `HadLoad` marker files. The exact update semantics and whether other
+   app-private storage contains custom tables remain unresolved.
+6. The 97 supplied Unity cache bundles are a second byte-unique asset set,
+   primarily named for map preload/footprint and fight/talk UI. Their paths do
+   not establish map or gameplay relationships without object-level parsing.
 
 ## Next recommended actions
 
-1. Do not import legacy or starter seed rows. Plan a normal verified Steam
-   launch with before/after filesystem manifests of likely client data
-   locations. Prefer files written before login and do not use Reload Data on
-   the first observation.
-2. After the client closes, copy only new or changed non-account-specific files
-   to an isolated evidence folder and record original path, timestamps, size,
-   SHA-256, and comparison against the 12 expected payload filenames and named
-   manifest/streaming package literals.
-3. When payload bytes exist, fingerprint them first, preserve them read-only
+1. Statistically index the 97 supplied Unity cache bundles, beginning with
+   `atlas_footprint_*` and `atlas_preload_mappreload_*`, and link only direct
+   asset relationships.
+2. Trace the XAPK IL2CPP methods that create/read `HadLoad`,
+   `MaxStreamingAssets`, and `StreamingAssetsVision` to establish their exact
+   update semantics and storage paths.
+3. If an additional lawful, non-account-specific app-private export becomes
+   available without rooting or bypassing access controls, inventory it against
+   the 12 expected payload names before parsing anything.
+4. When payload bytes exist, fingerprint them first, preserve them read-only
    outside the repo, and build deterministic parsers from the indexed schema.
-4. Prioritize `NNpc` + encounter/event structures + `NSceneData`, then link
+5. Prioritize `NNpc` + encounter/event structures + `NSceneData`, then link
    drops/items. Do not infer spawn relationships from NPC stats or names.
-5. Implement the flexible `source_type + source_id -> drop_table` relationship
+6. Implement the flexible `source_type + source_id -> drop_table` relationship
    when current drop records exist; do not assume all drops attach to monsters.
-6. Add manual current-game observations only as Grade B evidence with build,
+7. Add manual current-game observations only as Grade B evidence with build,
    screenshot/notes, coordinates, and reproducible steps.
-7. Run validation after every generated-data or frontend change.
+8. Run validation after every generated-data or frontend change.
 
 ## Last successful commands
 
@@ -272,6 +335,18 @@ python tools\index_il2cpp_schema.py `
   --game-assembly "D:\SteamLibrary\steamapps\common\WLM\GameAssembly.dll" `
   --global-metadata "D:\SteamLibrary\steamapps\common\WLM\WLM_Data\il2cpp_data\Metadata\global-metadata.dat" `
   --dumper "C:\Users\josue\Downloads\Il2CppDumper-win-v6.7.46\Il2CppDumper.exe"
+```
+
+The supplied XAPK/runtime pass added:
+
+```powershell
+python tools\inventory_android_source.py `
+  --xapk "C:\Users\josue\Downloads\Wonderland M\Wonderland+M_1.1060.1_APKPure.xapk" `
+  --app-data-dir "C:\Users\josue\Downloads\Wonderland M\APK FILES\com.x980.wlmobile"
+
+python tools\index_android_item_assets.py `
+  --app-data-dir "C:\Users\josue\Downloads\Wonderland M\APK FILES\com.x980.wlmobile" `
+  --assetripper-export <isolated-AssetRipper-output>
 ```
 
 Official candidate inspection also reused:
@@ -304,6 +379,12 @@ python tools\index_il2cpp_schema.py `
 - `reports/monster_drop_navigation_plan.md`
 - `reports/official_client_candidate_inspection.md`
 - `source_manifest/official_packages.json`
+- `reports/android_runtime_export_inventory.md`
+- `reports/android_new_item_assets.md`
+- `reports/xapk_il2cpp_schema.md`
+- `reports/xapk_android_runtime_pass.md`
+- `source_manifest/android_export/android-source-inventory.json`
+- `source_manifest/android_export/item-assets.json`
 - `database/schema.sql`
 
 ## Resume checklist

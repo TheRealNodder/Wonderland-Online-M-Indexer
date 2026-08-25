@@ -219,8 +219,8 @@ def markdown_report(result: dict[str, object]) -> str:
         "|---|---:|---|",
     ]
     for label, artifact in (
-        ("GameAssembly.dll", dump["game_assembly"]),
-        ("global-metadata.dat", dump["global_metadata"]),
+        (Path(str(dump["game_assembly"]["path"])).name, dump["game_assembly"]),
+        (Path(str(dump["global_metadata"]["path"])).name, dump["global_metadata"]),
         ("Il2CppDumper.exe", dump["dumper"]),
         ("fresh dump.cs", dump["dump_cs"]),
         ("fresh stringliteral.json", dump["string_literals"]),

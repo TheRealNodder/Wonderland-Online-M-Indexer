@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-25T10:40:36-07:00",
+  "product_scope": "current Wonderland M only",
+  "primary_artifact": {
+    "filename": "Wonderland+M_1.1060.1_APKPure.xapk",
+    "source_path": "C:\\Users\\josue\\Downloads\\Wonderland M\\Wonderland+M_1.1060.1_APKPure.xapk",
+    "artifact_type": "android_xapk",
+    "distribution_label": "APKPure",
+    "size_bytes": 90831531,
+    "sha256": "eff3324b28fe324dc3457895d4bb746647dbbfa7c01281c23a20fc4d7ab18f26",
+    "package_id": "com.x980.wlmobile",
+    "version_code": 122,
+    "version_name": "1.1060.1",
+    "min_sdk": 30,
+    "target_sdk": 35,
+    "outer_entry_count": 4,
+    "outer_container_signature_status": "not_applicable_or_not_evaluated",
+    "source_status": "user_supplied_third_party_distribution_container"
+  },
+  "embedded_apks": [
+    {
+      "filename": "com.x980.wlmobile.apk",
+      "split_id": "base",
+      "size_bytes": 64360336,
+      "sha256": "1bfe35004d541fc93666ca5ac33eed8cb5d36bf359d56177ef215eb99810a065",
+      "zip_entry_count": 4236,
+      "package_id": "com.x980.wlmobile",
+      "version_code": 122,
+      "version_name": "1.1060.1",
+      "signature": {
+        "schemes_present": [
+          "v2",
+          "v3"
+        ],
+        "verified_scheme": "APK Signature Scheme v2",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "signature_valid": true,
+        "content_digest_valid": true,
+        "public_key_matches_certificate": true,
+        "certificate_subject": "CN=Unknown,OU=smartonline,O=smartonline,L=HK,ST=HK,C=HK",
+        "certificate_sha256": "a1402d411ca1fd484cedbaa2affcd62e2a8b7ce52fe57be1d9593a6a702e9882"
+      }
+    },
+    {
+      "filename": "config.arm64_v8a.apk",
+      "split_id": "config.arm64_v8a",
+      "size_bytes": 26387149,
+      "sha256": "90201c31013e79b7aa1c78b6cc0548dd74a264bfd4476c8db9edb8e5425f9dca",
+      "zip_entry_count": 10,
+      "package_id": "com.x980.wlmobile",
+      "version_code": 122,
+      "signature": {
+        "schemes_present": [
+          "v1",
+          "v2",
+          "v3"
+        ],
+        "verified_scheme": "APK Signature Scheme v2",
+        "algorithm": "RSA-PKCS1-SHA256",
+        "signature_valid": true,
+        "content_digest_valid": true,
+        "public_key_matches_certificate": true,
+        "certificate_subject": "CN=Unknown,OU=smartonline,O=smartonline,L=HK,ST=HK,C=HK",
+        "certificate_sha256": "a1402d411ca1fd484cedbaa2affcd62e2a8b7ce52fe57be1d9593a6a702e9882"
+      }
+    }
+  ],
+  "publisher_continuity": {
+    "certificate_matches_previously_verified_official_apk": true,
+    "previous_official_apk_certificate_sha256": "a1402d411ca1fd484cedbaa2affcd62e2a8b7ce52fe57be1d9593a6a702e9882",
+    "interpretation": "The embedded APKs are publisher-signed current-product artifacts; the APKPure XAPK wrapper itself is not treated as an official publisher signature."
+  },
+  "xapk_il2cpp": {
+    "architecture": "arm64-v8a",
+    "unity_version": "6000.0.58f2",
+    "metadata_magic": "0xFAB11BAF",
+    "metadata_version": 31,
+    "libil2cpp_size_bytes": 61184976,
+    "libil2cpp_sha256": "2286adf1320cd7710eb3f3e9d7d6b1822d6d5740b4a33879a630b79c6d64abc2",
+    "global_metadata_size_bytes": 9477776,
+    "global_metadata_sha256": "1b0183c154c8a172fdd1cdc3ff41ea8c8136a48d79aeedbbf3b672e9d89aec63",
+    "target_type_count": 33,
+    "expected_filename_literal_count": 12,
+    "prior_official_android_target_schema": "exact_semantic_match",
+    "steam_target_schema": "semantic_match_with_three_platform_specific_field_offsets"
+  },
+  "supplied_android_app_data_export": {
+    "source_path": "C:\\Users\\josue\\Downloads\\Wonderland M\\APK FILES\\com.x980.wlmobile",
+    "association_evidence": [
+      "package-directory name com.x980.wlmobile",
+      "UnityFS bundles identify Unity 6000.0.58f2",
+      "supplied alongside the version 1.1060.1 XAPK"
+    ],
+    "file_count": 28838,
+    "size_bytes": 1453213358,
+    "downloaded_unity_bundle_count": 28590,
+    "account_or_save_directories_present": false,
+    "source_status": "user_supplied_current_android_runtime_export"
+  },
+  "processing": {
+    "source_files_modified": false,
+    "source_executables_run": false,
+    "embedded_apks_executed": false,
+    "character_assets_parsed": false,
+    "legacy_gameplay_data_imported": false,
+    "signature_method": "Static APK signing-block parse plus APK v2 signature and one-megabyte chunked content-digest verification",
+    "inventory_tool": "tools/inventory_android_source.py"
+  },
+  "domain_record_gate": "closed_until_current_payload_records_are_recovered_and_validated"
+}
